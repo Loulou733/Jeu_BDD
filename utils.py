@@ -17,3 +17,5 @@ def afficher_le_menu():
     print("1. Démarrer le jeu /n")
     print("2. Afficher le classement /n")
     print("3. Quitter le jeu")
+
+def choix_est_valide(choix):
