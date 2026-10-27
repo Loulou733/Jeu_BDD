@@ -1,3 +1,5 @@
+from utils import afficher_le_menu
+
 #Fonction Main
     # afficher_le_menue
     # savoir ce que le joueur choisit
@@ -9,3 +11,5 @@
 
 
 
+def main():
+    afficher_le_menu()

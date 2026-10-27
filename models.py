@@ -6,3 +6,5 @@
 #class pigs:
     #on fais le def init
         #On met tout les stats du cochon
+
+
