@@ -25,33 +25,18 @@
             # on affcihe le resultat et le classementles pv de tout les perso = 0
 
 from pymongo import MongoClient
+import random
 from utils import creer_equipe, recuperer_oiseaux, recuperer_cochon
 client = MongoClient('mongodb://localhost:27017/')
 
-db = client.JeuBDD
-collection = db.monsters
+def choisir_nom():
+    return input("Choississez un nom : \n")
 
-import random 
+def choisir_cochon_actuel():
+    return random.choice(recuperer_cochon())
 
 
 def game():
-    nom_du_joueur = input("Votre nom :")
-    vague = 0
-    pig = random.choice(recuperer_cochon())
-    oiseaux = creer_equipe()
-
-    while pig.est_vivant():
-        for oiseau in oiseaux:
-            if pig.defense < oiseau.attaque:
-                attaque = pig.defense - oiseau.attaque
-                pig.vie = pig.vie - attaque
-            if pig.vie <= 0 :
-                vague = vague + 1
-                pig = random.choice(recuperer_cochon())
-        for cible in oiseaux:
-            if pig.attaque > oiseau.defense:
-                attaque = pig.defense - oiseau.attaque
-                pig.vie = pig.vie - attaque
-            if pig.vie <= 0 :
-                vague = vague + 1
-                pig = random.choice(recuperer_cochon())
+    nom_du_joueur = choisir_nom()
+    cochon = choisir_cochon_actuel()
+    derouelement_de_la_vague()
