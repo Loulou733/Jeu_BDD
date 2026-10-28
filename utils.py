@@ -15,9 +15,8 @@
 
 from pymongo import MongoClient
 client = MongoClient('mongodb://localhost:27017/')
-
-db = client.JeuBDD
-collection = db.monsters
+def get_db():
+    return client["JeuBDD"]
 
 MENU = [
   "Lancer Jeu",
@@ -26,20 +25,11 @@ MENU = [
    ]
 
 def recuperer_oiseaux():
-    client = MongoClient("mongodb://localhost:27017")
-    db = client["JeuBDD"]
-    collection = db["birds"]
-
-    cursor = collection.find()
-    oiseaux = list(cursor)
+    return list(get_db()["birds"].find())
 
 def recuperer_cochon():
-    client = MongoClient("mongodb://localhost:27017")
-    db = client["JeuBDD"]
-    collection = db["pigs"]
+    return list(get_db()["pigs"].find())
 
-    cursor = collection.find()
-    cochons = list(cursor)
 
 def choix(option):
     choix_user = input(f"Choississez un nombre entre 1 et 3")

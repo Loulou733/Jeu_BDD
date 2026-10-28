@@ -6,25 +6,19 @@
 #class pigs:
     #on fais le def init
         #On met tout les stats du cochon
-
-
-class birds:
-    def __init__(self, nom, attaque, defense, vie):
-        self.name = nom  
-        self.attaque = attaque
+class Entite():
+    def __init__(self, name, attack, defense, pv):
+        self.name = name
+        self.attack = attack
         self.defense = defense
-        self.vie = vie
+        self.pv = pv
 
     def est_vivant(self):
-        self.vie > 0
+        return self.pv < 0
 
+    
+class birds(Entite):
+    pass
 
-class pigs:
-    def __init__(self, nom, attaque, defense, vie):
-        self.name = nom  
-        self.attaque = attaque
-        self.defense = defense
-        self.vie = vie
-
-    def est_vivant(self):
-        self.vie > 0
+class pigs(Entite):
+    pass
