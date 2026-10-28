@@ -24,8 +24,25 @@
             # on enregistre vague dans la bdd
             # on affcihe le resultat et le classementles pv de tout les perso = 0
 
+from pymongo import MongoClient
+client = MongoClient('mongodb://localhost:27017/')
 
-
+db = client.JeuBDD
+collection = db.monsters
 
 import random 
 from math import floor
+from models import pigs, birds
+
+def game():
+    vague = 0
+    pipeline = [{"$sample": {"size": 1}}]
+    pig = list(collection.aggregate(pipeline))
+    while pig.est_vivant():
+        if pig.defense < bird.attaque:
+            attaque = pig.defense - bird.attaque
+            pig.vie = pig.vie - attaque
+        if pig.vie <= 0 :
+            vague = vague + 1
+            pipeline = [{"$sample": {"size": 1}}]
+            pig = list(collection.aggregate(pipeline))

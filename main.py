@@ -1,10 +1,40 @@
 from utils import afficher_le_menu
 
-# MENU = [
-#   "Lancer Jeu",
-#   "Afficher les scores",
-#   "Quitter",
-#    ]
+MENU = [
+  "Lancer Jeu",
+  "Afficher les scores",
+  "Quitter",
+   ]
+
+def choix(option : list):
+    choix_user : int = input("Choississez un nombre entre 1 et 3")
+    verifier_choix(choix_user=, option)
+
+def verifier_choix(choix_user, option : list):
+    if (min <= choix_user <= max):
+        return choix_user
+    else:
+        raise ValueError("Veuillez mettre un choix valide entre 1 et 3")
+    
+
+
+
+
+
+
+def main():
+    for element in MENU:
+        print(element)
+    while True:
+        choix(MENU)
+
+    if choix_user == 1:
+        game()
+    if choix_user == 2:
+        afficher_le_menu()
+    else:
+        sys.exit()
+    
 # Menu
 #   Boucle sur tout element de MENU
 #       afficher numero element et texte element
@@ -33,28 +63,5 @@ from utils import afficher_le_menu
 #       sys.exit()
 
 
-def GetName():
-    name = input("Entrez votre nom: ")
-    return name
 
-
-def GetRNDName():
-    import random
-    names = ["Alice", "Bob", "Charlie", "Diana"]
-    return random.choice(names)
-
-
-def print_hello(name_func):
-    name = name_func()
-    print(f"Bonjour, {name} !")
-
-
-print_hello(GetName)
-print_hello(GetRNDName)
-
-
-
-def main():
-    afficher_le_menu()
-    choix = input("Choississez ce que vous voulez faire")
     
