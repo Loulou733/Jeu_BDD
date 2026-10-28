@@ -35,9 +35,11 @@ from math import floor
 from models import pigs, birds
 
 def game():
+    nom_du_joueur = input("Votre nom :")
     vague = 0
     pipeline = [{"$sample": {"size": 1}}]
-    pig = list(collection.aggregate(pipeline))
+    pig_actuel = list(collection.aggregate(pipeline))
+    
     while pig.est_vivant():
         if pig.defense < bird.attaque:
             attaque = pig.defense - bird.attaque

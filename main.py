@@ -1,39 +1,22 @@
-from utils import afficher_le_menu
-
-MENU = [
-  "Lancer Jeu",
-  "Afficher les scores",
-  "Quitter",
-   ]
-
-def choix(option : list):
-    choix_user : int = input("Choississez un nombre entre 1 et 3")
-    verifier_choix(choix_user=, option)
-
-def verifier_choix(choix_user, option : list):
-    if (min <= choix_user <= max):
-        return choix_user
-    else:
-        raise ValueError("Veuillez mettre un choix valide entre 1 et 3")
-    
-
-
-
-
-
+import sys
+from game import game
+from utils import MENU, choix, afficher_les_scores
 
 def main():
     for element in MENU:
         print(element)
     while True:
-        choix(MENU)
+        choix_user = choix(MENU)
+        if choix_user == 1:
+            game()
+        if choix_user == 2:
+            afficher_les_scores()
+        if choix_user == 3:
+            sys.exit()
 
-    if choix_user == 1:
-        game()
-    if choix_user == 2:
-        afficher_le_menu()
-    else:
-        sys.exit()
+
+main()
+
     
 # Menu
 #   Boucle sur tout element de MENU
@@ -61,7 +44,3 @@ def main():
 #        Affiche les score
 #    Quitter
 #       sys.exit()
-
-
-
-    
